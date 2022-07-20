@@ -1,13 +1,154 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=>, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <title>Weather App</title>
   </head>
+
   <body>
-    <h1>Hello World!</h1>
-    <script src="script.js"></script>
+    <div class="container">
+
+      <div class="weather-app daily">
+
+        <form class="search-form" id="search-form">
+
+          <div class="row">            
+            <div class="col-9">
+              <input
+              type="search"
+              placeholder="Type a city.."
+              autofocus="on"
+              autocomplete="off"
+              id="city-input"
+              class="form-control shadow-sm"
+            />
+
+            </div>
+            <div class="col-3">
+              <input
+                type="submit"
+                value="Search"
+                class="form-control btn btn-primary shadow-sm"
+               
+              />  <button type="button" class="btn btn-secondary btn-sm"
+               id="current-location-button">
+                  📍
+                </button>
+              <div class="col-9">
+            </div>
+             </div>
+          </div><!-- end row -->
+
+        </form>
+
+        <h1 id="city">
+          Ocala, Florida
+        </h1>
+<br />
+        <ul>
+          <li id="date"></li>
+          <li id="description"></li>
+          <li>
+            Partly Cloudy
+          </li>
+        </ul>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="clearfix">
+              <img
+                src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                alt="Cloudy icon"
+                class="weather-icon float-left"
+              />
+              <div class="float-left">
+                <span class="temperature" id="temperature">19</span
+                ><span class="units">F°</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <ul>
+              <li>Humidity: <span id="humidity"></span>%</li>
+              <li>Wind: <span id="wind"></span> km/h</li>
+            </ul>
+          </div>
+        </div>
+      </div><!-- end weather-app -->
+
+      <div class="weather-app weekly">
+
+        <span class="forcast-group">
+              <div class="row">
+                <div class="col-2">
+                  <ul>
+                    <li>
+                      Monday
+                      95°
+                    </li>
+                    <br>
+                        <img src="https://ssl.gstatic.com/onebox/weather/48/sunny.png" alt="Cloudystorms">
+                </div>
+                <div class="col-2">
+                    <ul>
+                      <li>
+                        Tuesday
+                           75°
+                        </li>
+                        <br>
+                        <img src="https://ssl.gstatic.com/onebox/weather/48/cloudy.png" alt="Cloudy">
+                  </div>
+                  <div class="col-2">
+                      <ul>
+                        <li>
+                          Wednesday
+                          80°
+                        </li>
+                        <br>
+                        <img src="https://ssl.gstatic.com/onebox/weather/48/sunny.png" alt="Sunny">
+                    </div>
+                    <div class="col-2">
+                      <ul>
+                        <li>
+                          Thursday
+                          60°
+                        </li>
+                        <br>
+                        <img src="https://ssl.gstatic.com/onebox/weather/48/thunderstorms.png" alt="Cloudystorms">
+                    </div>
+                    <div class="col-2">
+                        <ul>
+                          <li>
+                            Friday
+                            90°
+                          </li>
+                          <br>
+                        <img src="https://ssl.gstatic.com/onebox/weather/48/sunny.png" alt="Cloudystorms">
+                      </div>
+                      <div class="col-2">
+                          <ul>
+                            <li>
+                              Saturday
+                              73°
+                            </li>
+                            <br>
+                        <img src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png" alt="partlycloudy">
+                        </div>
+           </span>
+      </div><!-- end weather-app -->
+    </div><!-- end container -->
+    
+    <script src="src/index.js"></script>
   </body>
 </html>
