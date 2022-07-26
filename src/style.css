@@ -82,3 +82,12 @@ li {
   color: #007bff;
   border-color: #007bff;
 }
+
+.weather-temperature .active {
+  color: hsl(0, 0%, 0%);
+  cursor: default;
+}
+
+.weather-temperature .active:hover {
+  text-decoration: none;
+}
