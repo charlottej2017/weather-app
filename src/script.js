@@ -117,7 +117,7 @@ function searchLocation(position) {
 
   axios.get(apiUrl).then(displayWeatherCondition);
 }
-
+// Current location button
 function showPosition(position) {
   let apiKey = "b95f9ececad46adfb2b7b5be4da60099";
   let latitude = position.coords.latitude;
@@ -134,7 +134,7 @@ function getCurrentLocation(event) {
 
 let button = document.querySelector("#current-location");
 button.addEventListener("click", getCurrentLocation);
-
+// Celsius and Fahrenheit
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
