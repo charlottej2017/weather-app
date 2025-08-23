@@ -103,13 +103,19 @@ async function search(city) {
     );
     const pointData = await pointRes.json();
 
+    // Grab city + state from weather.gov API
+    const cityName =
+      pointData.properties.relativeLocation.properties.city || city;
+    const stateName =
+      pointData.properties.relativeLocation.properties.state || "";
+
     // Forecast URL
     const forecastUrl = pointData.properties.forecast;
     const forecastRes = await fetch(forecastUrl);
     const forecastData = await forecastRes.json();
 
     // Pass to display function
-    displayTemperature(forecastData, city);
+    displayTemperature(forecastData, `${cityName}, ${stateName}`);
   } catch (err) {
     console.error("Search error:", err);
   }
@@ -129,9 +135,19 @@ function showPosition(position) {
 
   fetch(`https://api.weather.gov/points/${lat},${lon}`)
     .then((res) => res.json())
-    .then((pointData) => fetch(pointData.properties.forecast))
-    .then((res) => res.json())
-    .then((forecastData) => displayTemperature(forecastData, "Your Location"))
+    .then((pointData) => {
+      const city =
+        pointData.properties.relativeLocation.properties.city || "Unknown City";
+      const state =
+        pointData.properties.relativeLocation.properties.state || "";
+
+      // Now fetch the forecast
+      return fetch(pointData.properties.forecast)
+        .then((res) => res.json())
+        .then((forecastData) =>
+          displayTemperature(forecastData, `${city}, ${state}`)
+        );
+    })
     .catch((err) => console.error(err));
 }
 
