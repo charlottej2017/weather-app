@@ -82,6 +82,11 @@ li {
   bottom: 33px;
   color: #007bff;
   border-color: #007bff;
+  margin: 0 10px 0 10px;
+}
+.btn-primary {
+  margin: 0 0 0 15px;
+  border-radius: 115px;
 }
 
 .weather-temperature .active {
@@ -91,4 +96,13 @@ li {
 
 .weather-temperature .active:hover {
   text-decoration: none;
+}
+
+.col-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+img #forcast {
+  align-items: center;
 }
